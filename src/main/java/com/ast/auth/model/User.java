@@ -22,5 +22,5 @@ public class User {
     private String password; // stored as BCrypt hash
 
     @Column
-    private String role = "USER";
+    private String role;
 }
