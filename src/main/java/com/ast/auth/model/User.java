@@ -1,16 +1,17 @@
 package com.ast.auth.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,8 +20,8 @@ public class User {
     private String username;
 
     @Column(nullable = false)
-    private String password; // stored as BCrypt hash
+    private String password;
 
-    @Column
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
